@@ -1,0 +1,183 @@
+dir(): display package in the current directory
+
+import sys
+sys.path.insert(0, "C:\\Users\\Xueho\\Documents\\Modules\\XL-exce") OR
+sys.path.append("C:\\Users\\Xueho\\Documents\\Modules\\XL-exce")
+import module 
+
+pwd: returns the current directory 
+
+cd /: to switch to the root directory
+
+cd home: go to home directory
+
+cd dq: go to the /home/dq folder
+
+whoami: check which user we're logged in as
+
+cd /: to switch to the root directory
+
+cd ~: to switch back to the home directory 
+
+mkdir test: to create a directory called test inside the user dq's home folder
+
+mkdir -v test2: adding the -v option will turn on "verbose" mode, and print output when it makes the folder 
+
+mkdir --help:  to see the help contents for the mkdir command
+
+ls -l: to see the contents of the home folder, file permissions
+
+rmdir test: delect direcgtory test
+
+touch test.txt: to create a file named test.txt
+
+echo "all": to write 'all' to stdout
+
+>: redirect.  echo "Data" > data.txt: write Data into data.txt file 
+
+nano test.txt: open the test.txt file for editing
+
+chmod 0760: change file permission
+    --- : No permissions; corresponds to 0
+    --x : Execute only permission; corresponds to 1
+    -w- : Write only permissions; corresponds to 2
+    -wx : Write and execute permissions; corresponds to 3
+    r-- : Read only permissions; corresponds to 4
+    r-x : Read and execute permissions; corresponds to 5
+    rw- : Read and write permissions; corresponds to 6
+    rwx : Read, write, and execute permissions; corresponds to 7
+
+stat test.txt: to see the file permissions for the test.txt file
+
+mv test.txt test: to move the test.txt file to the test folder
+
+cp test.txt test2.txt: copy the test.txt file, and create test2.txt containing the contents of test.txt
+
+rm test.txt: remove test.txt file
+
+sudo: run commands as the root user.  
+
+ANIMAL="Shark with a laser beam on its head": set variables on the command line using bash
+
+echo $FOOD: access and print value of variable FOOD on bash
+
+export FOOD="Chicken and waffles":  to create an environment variable called FOOD
+
+$python: run python from bash
+    >>>import os
+    >>>print(os.environ["FOOD")
+    
+exit():  to exit the interpreter
+
+/usr/bin/python: access any python using full path
+
+export PATH="/usr/bin:$PATH": enable excution files by typing in the name of any executable inside /usr/bin
+
+ls -a == ls --all: list all of the files in a directory
+
+ls -la == ls -l -a:  list all of the files in long format
+
+ls --ignore=test.txt: won't include any files named test.txt in the output of ls
+
+__name__: this variable in Python scripts is automatically set to the name of the module
+    if __name__ == "__main__":
+    print("Welcome to a Python script")     run this using $python script.py /  $python3 script.py
+    
+pip install package
+
+virtualenv python3: to create a virtualenv named python3. It will create a folder in the current directory called main that will hold all of the packages installed into the virtual environment
+source python3/bin/activate: activate virtual enviornment python3
+
+virtualenv -p /usr/bin/python3 script: create a Python 3 virtualenv called script
+source script/bin/activate: activate the script virtualenv
+
+python -V:  to check current Python version
+
+pip freeze: to check which packages are installed, and their versions
+
+importing function in python:  utils:     def print_message():
+                                              print("Hello from another file!")
+                                          script:    import utils
+                                              if __name__ == "__main__":
+                                                  utils.print_message()
+                                          $python script.py
+pass command line options into Python scripts:
+    import sys
+    if __name__ == "__main__":
+        print(sys.argv[1])
+    $python scripy.py "Hello"
+    
+deactivate: deactivate the virtualenv
+
+Windows Subsystem for Linux
+
+edit ~/.bashrc: edit .bashrc, which is a file that contains all of the settings and aliases that the shell pays attention to when you start up the shell.
+i: to enter insertion mode
+bashrc: cd /mnt/C/Users/Xueho
+Esc
+:wq: to save change and exit
+cat ~/.bashrc: to verify changes were made
+source ~/.bashrc: to have the changes take effect immediately
+cp /etc/skel/.bashrc ~: access original .bashrc file
+
+ipython: to access juputer console
+?: help
+q: exit
+%quickref: a magic to show some useful commands
+help(): to get access to Python help
+useful magics are:
+
+    %run -- to run an external Python script. Any variables in the script will be stored in the current kernel session.
+    %edit -- opens a file editor. Any code you type into the editor will be executed by Jupyter when you exit the editor.
+    %debug -- if there's an error in any of the code, running %debug afterwards will open an interactive debugger you can use to trace the error.
+    %history -- shows you the last few commands you ran.
+    %save -- saves the last few commands you ran to a file.
+    %who -- print all the variables in the session.
+    %reset -- resets the session, and removes all stored variables.
+
+!mkdir xxx: Make a subdirectory xxx.
+!touch xxx: Create a file xxx.
+!ls: Check the contents of the current directory with 
+
+
+%cpaste --:  opens a special editing area where you can paste in code normally, without whitespace being a problem. 
+--:  type on a line to exit. After you exit, any code you pasted in will be immediately executed.
+%paste -- : takes code from your clipboard and runs it in Jupyter. This won't work on a remote system where Jupyter doesn't have access to your clipboard. Since we're using a remote system, you will see ERROR: Getting text from the clipboard on this platform requires Tkinter
+
+Ctrl + A followed by Ctrl + V: Paste in the code
+
+Piping and redirecting output
+
+>>: add text to file without overwrite existing text
+
+sort <: sort text
+
+grep "pass" beer.txt: print any lines in beer.txt where the string pass appears, and highlight the string pass
+    wildcards: ?, *, 
+
+|: the pipe character, to send the standard output from one command to the standard input of another command. 
+
+tail -n 10 logs.txt | grep "Error": search the last 10 lines of logs.txt for the string Error
+
+&&: run two commands sequentially, but not pass output between them
+
+cat: concatenate the contents of a file and display the contents of a file
+
+#:  start of a comment
+
+;: Command separator [semicolon]. Permits putting two or more commands on the same line.
+
+;;: Terminator in a case option [double semicolon]. 
+;;&, ;&: Terminators in a case option (version 4+ of Bash). 
+
+"dot", as a component of a filename. a leading dot is the prefix of a "hidden" file, a file that an ls will not normally show.
+When considering directory names, '.' represents the current working directory, and two dots denote the parent directory.
+"dot" character match. When matching characters, as part of a regular expression, a "dot" matches a single character.
+
+": partial quoting [double quote]. "STRING" preserves (from interpretation) most of the special characters within STRING
+': full quoting [single quote]. 'STRING' preserves all special characters within STRING. This is a stronger form of quoting than "STRING"
+,: comma operator. links together a series of arithmetic operations. All are evaluated, but only the last one is returned.
+    let "t2 = ((a = 9, 15 / 3))"
+    # Set "a = 9" and "t2 = 15 / 3"
+
+fi: closes the if statement, while ;; closes the current entry in the case statement
