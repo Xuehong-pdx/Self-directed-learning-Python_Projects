@@ -1,1 +1,9 @@
-# The projects included in this folder are written in Python 3.6
+### The projects included in this folder are written in Python 3.6
+### Packages used include,
+  ### sys
+  ### numpy
+  ### pandas
+  ### matplotlib
+  ### re
+  ### Datetime
+  ### Seaborn
