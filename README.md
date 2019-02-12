@@ -8,3 +8,4 @@
   ### Datetime
   ### dateutil
   ### Seaborn
+  ### Csvkit
