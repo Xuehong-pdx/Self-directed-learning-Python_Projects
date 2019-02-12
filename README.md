@@ -1,5 +1,5 @@
 ## The projects included in this folder are written in Python 3.6
-## Packages used include,
+## Libraries used include,
   ### sys
   ### numpy
   ### pandas
