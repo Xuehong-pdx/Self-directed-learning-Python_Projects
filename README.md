@@ -6,4 +6,5 @@
   ### matplotlib
   ### re
   ### Datetime
+  ### dateutil
   ### Seaborn
