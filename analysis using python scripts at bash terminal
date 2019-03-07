@@ -1,0 +1,121 @@
+Termianl comments 
+
+read.py
+# this script will read in hn_stories.csv and set coloumns names as indicated
+
+def load_data():        
+    import pandas as pd
+    df=pd.read_csv('hn_stories.csv')
+    df.columns=['submission_time', 'upvotes', 'url', 'headline']
+    return df
+
+if __name__=="__main__":
+    df=load_data()
+    print(df.info())
+    
+count.py
+This script will count and print out the first 100 mostly used words in headlines
+
+import pandas as pd
+import read
+from collections import Counter
+df = read.load_data()
+head_str=''
+ls=df['headline']
+for item in ls:
+    item = str(item)
+    head_str = head_str + item
+words = head_str.lower().split(' ')
+top_100 = Counter(words).most_common(100)
+print(top_100)
+
+doamins.py
+# This script will first consolidate urls and are the same address and then print out the top 100 domains. 
+
+import pandas as pd
+from collections import Counter
+import read
+df= read.load_data()
+domains = df['url']
+lst=[]
+for item in domains:
+    sl=str(item).split('.')
+    if len(sl) > 2:
+        s=sl[-2] + '.'+ sl[-1]
+        lst.append(s)
+    else:
+        lst.append(item)
+domains = lst
+top = Counter(domains).most_common(100)
+print(top)
+#validate results
+c=0
+for t in top:
+    s=str(t[0]).split('.')
+    if len(s) > 2:
+        c += 1
+print(c)
+
+times.py
+# This script extract the hours from the time stamp and return counts for hours stories were submited 
+def extr_hr(timestamp):
+    tm = dateutil.parser.parse(timestamp)
+    hr = tm.hour
+    return hr
+
+if __name__=="__main__":
+    import dateutil
+    import pandas as pd
+    import read
+    df = read.load_data()
+    df['submission_hours']=df['submission_time'].apply(extr_hr)
+    hr_count = df['submission_hours'].value_counts()
+    print(hr_count)
+
+# The scripts below will analyze data using Csvstack library
+
+csvstack -n year -g 2005,2007,2013 Hud_2005.csv, Hud_2007.csv Hud_2013.csv > Combined_hud.csv: add year coloumn
+
+head Combined_hud.csv:  view the first 10 lines
+
+head -10 Combined_hud.csv | csvlook: display data in tabular format
+
+csvcut -n Combined_hud.csv: parses and displays all the columns along with an unique integer identifier for each column
+csvcut Combined_hud.csv: displays the whole file (BAD IDEA)
+
+csvcut -c 2 Combined_hud.csv | head: display the first few rows in col 2
+
+csvcut -c 4 Combined_hud.csv | csvstat: calculates a full suite of summary statistics for selected col
+
+csvcut Combined_hud.csv | csvstat --mean: calculate the means for each coloumn
+
+csvcut -c 2 Combined_hud.csv | csvstat: calculate full stat for col 2
+
+csvgrep -c 2 -m -9 Combined_hud.csv | head | csvlook: select rows in col 2 where value=-9 and idsplay in tabular format
+
+    optional arguments:
+      -h, --help            show this help message and exit
+      -n, --names           Display column names and indices from the input CSV
+                        and exit.
+      -c COLUMNS, --columns COLUMNS
+                        A comma separated list of column indices, names or
+                        ranges to be searched, e.g. "1,id,3-5".
+      -m PATTERN, --match PATTERN
+                        The string to search for.
+      -r REGEX, --regex REGEX
+                        If specified, must be followed by a regular expression
+                        which will be tested against the specified columns.
+      -f MATCHFILE, --file MATCHFILE
+                        If specified, must be the path to a file. For each
+                        tested row, if any line in the file (stripped of line
+                        separators) is an exact match for the cell value, the
+                        row will pass.
+      -i, --invert-match    If specified, select non-matching instead of matching
+                        rows.
+      -a  --any-match       If specified, select rows where any column matches
+                        instead of all columns.
+
+csvgrep -c 2 -m -9 -i Combined_hud.csv > positive_ages_only.csv: Select all rows where the value for AGE1 isn't -9 and write just those rows to positive_ages_only.csv
+
+
+
