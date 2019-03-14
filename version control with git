@@ -1,0 +1,107 @@
+git init: initialize a Git repository
+
+git status: check the state of each file within a Git repository
+    
+git add file: add file to the staging area 
+    
+git config --global user.email "your.email@domain.com"
+git config --global user.name "Your name"
+
+git commit -m "Initial commit. Added script.py and README.md": make the first commit to the repository with an informative message
+    
+git diff: find the difference between commits
+git add
+git commit
+
+HEAD:  variable to switch to the most recent commit
+HEAD~1 will get the second newest commit in the local repo, and so on
+git reset --hard HEAD~1: reset the repo to the second most recent commit
+git rev-parse HEAD: find the commit hash corresponding to a particular commit number
+
+git clone https://github.com/amznlabs/amazon-dsstne.git: To clone a repo
+git branch: View all the branches in the repo
+git push origin [branchname]: To push local repo to remote repo
+git remote: List all the repo's remotes
+git log: explore the commit history.  if output long, scroll through the log with the up and down arrows, q key to exit.
+git show [hash]: See the specific change in a commit
+git log --stat: to explore the commit history  
+git reset: reset the repo to another earlier version
+git pull: pull the latest commits from remote
+
+git branch rocky: create a branch called rocky
+git checkout rocky: switch to the new branch
+git checkout -b rocky: create a branch named rocky and then switch to it right away
+printf: printf "print('2')" >> bot.py, 
+
+cd /home/dq/chatbot
+git checkout more-speech
+printf "\nprint('Kind of dull in here, right?')" >> bot.py
+git add bot.py
+git commit -m "Added more output"
+git branch -r: show all of the branches on the remote
+git branch -a: show all of the branches available locally
+
+cd /home/dq/chatbot
+git checkout master
+git merge more-speech: Merge more-speech into master
+git push origin master: To push local master repo to remote master repo
+
+git branch -d: remove the branch from our local repo
+git branch -D: remove the branch has unmerged commits inside it
+
+git fetch: fetch all of the current branches and commits from the remote
+git checkout angry-bot: look for the angry-bot branch in the local repo and remote repo
+
+cd /home/dq
+git clone /dataquest/user/git/chatbot chatbot2
+cd chatbot2
+git checkout -b happy-bot
+printf "\nprint('Happiness level: 120')" >> bot.py
+git add bot.py
+git commit -m "Made the bot 20% happier!"
+git push origin happy-bot
+cd /home/dq
+cd chatbot
+git fetch: update the Git history
+git checkout happy-bot
+python bot.py
+
+The typical Git workflow:
+
+    Create a branch off of master with the name of the feature. 
+    Make changes on the branch and create commits.
+    Push the branch to the remote repo.
+    Evaluate the branch.
+    Merge the branch into master once everyone thinks it looks okay.
+    Delete the branch.
+git diff happy-bot master: to see the differences between happy-bot and master
+
+git checkout -b feature/random-messages: create branch use a prefix that describes the type of branch
+printf "\nimport random\nmessages=['Hi', 'Hi.', 'How are you?', 'Today is a long day...']\nn=random.randint(1,len(messages)-1)\nprint(messages[n])" >> bot.py
+git add bot.py
+git commit -m "Added random messaging to the bot!"
+git push origin feature/random-messages
+
+git merge --abort: resolve a conflict is to abort the merge altogether
+
+git reset HEAD~1: reset the chatbot repo to the second most recent commit
+git mergetool --tool: graphical merge tool will show the branches side by side and highlight the differences visually
+        bc3
+        codecompare
+        deltawalker
+        diffmerge
+        diffuse
+        ecmerge
+        emerge
+        examdiff
+        gvimdiff
+        gvimdiff2
+        gvimdiff3
+git mergetool --tool=[tool name]: To run a specific tool    
+git checkout --ours or --theirs: --ours will keep files from the current branch, and --theirs will keep files from the branch we're merging in
+      add . at the end of git checkout --ours to keep all of the files on the current branch. 
+      can do the same for git add to stage multiple files at once
+git rm [fole]: stage deleted file
+.gitignore: instruct Git to ignore files such as .DS_Store, *.pyc
+git rm --cached .DS_Store: remove any files called .DS_Store from Git repo, but not from working directory
+
