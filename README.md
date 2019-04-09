@@ -5,6 +5,7 @@
    ##### pandas
    ##### math
    ##### matplotlib
+   ##### scipy
    ##### re
    ##### Datetime
    ##### dateutil
