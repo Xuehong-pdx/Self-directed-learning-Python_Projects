@@ -11,4 +11,4 @@
    ##### dateutil
    ##### Seaborn
    ##### Csvkit
-   ##### string
+   ##### string, string.punctuation
