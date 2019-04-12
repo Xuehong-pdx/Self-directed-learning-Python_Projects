@@ -11,3 +11,4 @@
    ##### dateutil
    ##### Seaborn
    ##### Csvkit
+   ##### string
