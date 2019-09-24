@@ -13,6 +13,5 @@
    ##### Seaborn
    ##### Csvkit
    ##### string, string.punctuation
-   ##### scikit learn
    ##### pyspark
   
