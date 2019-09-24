@@ -4,6 +4,7 @@
    ##### numpy
    ##### pandas
    ##### math
+   ##### random
    ##### matplotlib
    ##### scipy
    ##### re
@@ -12,3 +13,6 @@
    ##### Seaborn
    ##### Csvkit
    ##### string, string.punctuation
+   ##### scikit learn
+   ##### pyspark
+  
