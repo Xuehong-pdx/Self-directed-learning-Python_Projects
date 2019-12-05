@@ -6,6 +6,7 @@
    ##### Datetime
    ##### dateutil
    ##### random
+   ##### heapq
    ##### numpy
    ##### pandas
    ##### matplotlib
