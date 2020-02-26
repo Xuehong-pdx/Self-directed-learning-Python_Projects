@@ -3,6 +3,7 @@
    ##### sys
    ##### math
    ##### time
+   ##### timeit
    ##### Datetime
    ##### dateutil
    ##### random
